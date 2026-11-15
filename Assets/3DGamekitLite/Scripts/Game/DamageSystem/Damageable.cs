@@ -70,6 +70,18 @@ namespace Gamekit3D
             OnResetDamage.Invoke();
         }
 
+        public void GainSetHealth(int hP)
+        {
+            currentHitPoints += hP;
+            if (currentHitPoints > maxHitPoints)
+            {
+                currentHitPoints = maxHitPoints;
+            }
+            isInvulnerable = false;
+            m_timeSinceLastHit = 0.0f;
+            OnResetDamage.Invoke();
+        }
+
         public void SetColliderState(bool enabled)
         {
             m_Collider.enabled = enabled;
