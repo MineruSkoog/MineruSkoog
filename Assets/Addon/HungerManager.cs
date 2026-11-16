@@ -3,11 +3,11 @@ using Gamekit3D;
 
 public class HungerManager : MonoBehaviour
 {
-    private Damageable damageTarget;
+    private Damageable _damageTarget;
 
     [SerializeField] private float damageTime = 15.0f;
-    private float maxDamageTime;
-    private float timer = 0.0f;
+    private float _maxDamageTime;
+    private float _timer = 0.0f;
     [SerializeField] private int damageAmount = 1;
 
     //bool
@@ -16,7 +16,7 @@ public class HungerManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        damageTarget = GameObject.Find("Player").GetComponent<Damageable>();
+        _damageTarget = GameObject.Find("Player").GetComponent<Damageable>();
     }
 
     // Update is called once per frame
@@ -24,9 +24,9 @@ public class HungerManager : MonoBehaviour
     {
         if (canFeelHunger)
         {
-            timer += Time.deltaTime;
+            _timer += Time.deltaTime;
 
-            if (timer >= damageTime)
+            if (_timer >= damageTime)
             {
                 // take Damage
                 Damageable.DamageMessage msg = new Damageable.DamageMessage
@@ -39,8 +39,8 @@ public class HungerManager : MonoBehaviour
                     stopCamera = false
                     
                 };
-                damageTarget.ApplyDamage(msg);
-                resetTimer();
+                _damageTarget.ApplyDamage(msg);
+                ResetTimer();
             }
         }
         else 
@@ -49,10 +49,10 @@ public class HungerManager : MonoBehaviour
         }
     }
 
-    public void resetTimer()
+    public void ResetTimer()
         {
             Debug.Log("Resetting Timer");
-            timer = 0.0f;
+            _timer = 0.0f;
         }
     public void SubtractHungerTime(float reduction)
         {
@@ -62,7 +62,7 @@ public class HungerManager : MonoBehaviour
 
     public void ResetHungerTime()
     {
-        damageTime =maxDamageTime;
+        damageTime =_maxDamageTime;
         Debug.Log("HungerManager ResetHungerTime");
     }
 }

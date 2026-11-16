@@ -27,7 +27,7 @@ public class HealthPickups : MonoBehaviour
             {
                 other.GetComponent<Damageable>().GainSetHealth(healthAmount);
             }
-            hungerManager.resetTimer();
+            hungerManager.ResetTimer();
             if (destroyOnTrigger == true) 
             {
                 Destroy(gameObject);
