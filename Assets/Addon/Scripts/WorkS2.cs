@@ -5,6 +5,8 @@ using FMOD.Studio;
 
 public class WorkS2 : MonoBehaviour
 {
+
+    //public float timer = 5f;
     public EventInstance _eventInstance;
     public EventReference _eventReference;
     
@@ -22,5 +24,12 @@ public class WorkS2 : MonoBehaviour
     void Update()
     {
         
+        //timer -= Time.deltaTime;
+        //if (timer <= 0)
+        {  
+            // Note. Can change parameter by typing - _eventInstance.setParameterByName("parameter name", (1) for example);
+            // if (timer <= 0 && >= Time.deltaTime;
+       // _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
     }
 }
